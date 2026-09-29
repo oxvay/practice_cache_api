@@ -1,0 +1,16 @@
+[Unit]
+Description=Backend API for practice project
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+User=backend-api
+Group=backend-api
+Environment=CONFIG_PATH=/etc/backend-api/config.yaml
+ExecStart=/usr/bin/backend-api
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
